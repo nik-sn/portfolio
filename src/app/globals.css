@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* PM-grade light mode — warm off-white canvas with performance energy */
+  --color-background: #FAFBFD;
+  --color-foreground: #111827;
+  --color-muted: #6B7280;
+  --color-surface: #F0F2F7;
+  --color-surface-elevated: #FFFFFF;
+  --color-surface-tinted: #F5F7FB;
+  --color-border: #E2E5ED;
+
+  /* Primary PM accent — electric blue */
+  --color-accent: #2563EB;
+  --color-accent-hover: #1D4ED8;
+  --color-accent-light: rgba(37, 99, 235, 0.07);
+  --color-accent-subtle: rgba(37, 99, 235, 0.18);
+
+  /* Energy — green (consistency / growth) */
+  --color-energy: #16A34A;
+  --color-energy-light: rgba(22, 163, 74, 0.08);
+  --color-energy-subtle: rgba(22, 163, 74, 0.18);
+
+  /* Highlight — purple (system thinking / tech layer) */
+  --color-highlight: #7C3AED;
+  --color-highlight-light: rgba(124, 58, 237, 0.08);
+  --color-highlight-subtle: rgba(124, 58, 237, 0.14);
+
+  /* INTENSITY — gym effort / pump / peak performance */
+  --color-intensity: #F97316;
+  --color-intensity-light: rgba(249, 115, 22, 0.08);
+  --color-intensity-subtle: rgba(249, 115, 22, 0.18);
+
+  /* PR / max effort / alert */
+  --color-pr: #EF4444;
+  --color-pr-light: rgba(239, 68, 68, 0.08);
+
+  /* Recovery / calm performance */
+  --color-recovery: #0EA5E9;
+
+  /* =========================
+     FONTS (FIXED)
+     ========================= */
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* =========================
+   SURFACES (PM + TRAINING UI)
+   ========================= */
+
+.card-elevated {
+  background: var(--color-surface-elevated);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(37, 99, 235, 0.03);
+  border: 1px solid var(--color-border);
+}
+
+.card-active {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.06),
+    rgba(124, 58, 237, 0.04)
+  );
+  border: 1px solid rgba(37, 99, 235, 0.15);
+}
+
+.card-intensity {
+  background: linear-gradient(
+    135deg,
+    rgba(249, 115, 22, 0.08),
+    rgba(239, 68, 68, 0.04)
+  );
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+/* =========================
+   BACKGROUNDS
+   ========================= */
+
+.section-tinted {
+  background: var(--color-surface-tinted);
+}
+
+.dot-grid {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* =========================
+   TEXT GRADIENTS
+   ========================= */
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    #2563EB 0%,
+    #7C3AED 40%,
+    #F97316 70%,
+    #2563EB 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+.text-gradient-subtle {
+  background: linear-gradient(135deg, #2563EB 0%, #16A34A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-energy {
+  background: linear-gradient(135deg, #16A34A 0%, #2563EB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-intensity {
+  background: linear-gradient(135deg, #F97316 0%, #EF4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse-intensity {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* =========================
+   EFFECTS
+   ========================= */
+
+.glow-accent {
+  box-shadow:
+    0 0 30px rgba(37, 99, 235, 0.1),
+    0 0 60px rgba(37, 99, 235, 0.04);
+}
+
+.glow-energy {
+  box-shadow:
+    0 0 30px rgba(22, 163, 74, 0.1),
+    0 0 60px rgba(22, 163, 74, 0.04);
+}
+
+.glow-highlight {
+  box-shadow:
+    0 0 30px rgba(124, 58, 237, 0.1),
+    0 0 60px rgba(124, 58, 237, 0.04);
+}
+
+.glow-intensity {
+  box-shadow:
+    0 0 30px rgba(249, 115, 22, 0.12),
+    0 0 60px rgba(239, 68, 68, 0.06);
+}
+
+.progress-glow {
+  box-shadow:
+    0 0 20px rgba(249, 115, 22, 0.15),
+    0 0 40px rgba(37, 99, 235, 0.08);
+}
+
+/* =========================
+   BORDER GRADIENT
+   ========================= */
+
+.border-gradient {
+  position: relative;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.2),
+    rgba(124, 58, 237, 0.1),
+    rgba(249, 115, 22, 0.08),
+    transparent
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* =========================
+   SCROLL
+   ========================= */
+
+.scroll-progress {
+  background: linear-gradient(90deg, #2563EB, #7C3AED, #F97316);
+  transform-origin: left;
+}
+
+/* =========================
+   SELECTION
+   ========================= */
+
+::selection {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--color-foreground);
+}
+
+/* =========================
+   SCROLLBAR
+   ========================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
